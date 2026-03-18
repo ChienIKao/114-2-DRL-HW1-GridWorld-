@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GridWorld — HW1</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>GridWorld</h1>
+
+    <!-- ── Setup Panel ── -->
+    <div class="panel">
+      <div class="row-group">
+        <label for="nInput">Grid size n (5–9):</label>
+        <input id="nInput" type="number" min="5" max="9" value="5" />
+        <button id="btnGenGrid" class="btn btn-primary">Generate Grid</button>
+      </div>
+    </div>
+
+    <!-- ── Mode Buttons ── -->
+    <div class="panel mode-panel" id="modePanel" style="display:none;">
+      <span class="label">Click mode:</span>
+      <button id="btnSetStart"    class="btn btn-mode" data-mode="start">Set Start</button>
+      <button id="btnSetEnd"      class="btn btn-mode" data-mode="end">Set End</button>
+      <button id="btnSetObstacle" class="btn btn-mode" data-mode="obstacle">Set Obstacle</button>
+      <button id="btnClearMode"   class="btn btn-mode" data-mode="none">None</button>
+      <span id="obstacleCount" class="info-tag"></span>
+    </div>
+
+    <!-- ── Action Buttons ── -->
+    <div class="panel action-panel" id="actionPanel" style="display:none;">
+      <button id="btnGeneratePolicy"  class="btn btn-secondary">Generate Random Policy</button>
+      <button id="btnEvaluate"        class="btn btn-secondary" disabled>Evaluate Policy</button>
+      <button id="btnValueIteration"  class="btn btn-vi"        disabled>Value Iteration</button>
+      <button id="btnReset"           class="btn btn-danger">Reset</button>
+    </div>
+
+    <!-- ── Status Bar ── -->
+    <div id="statusBar" class="status-bar" style="display:none;"></div>
+
+    <!-- ── Grid ── -->
+    <div id="gridWrapper" class="grid-wrapper" style="display:none;">
+      <div id="grid" class="grid"></div>
+    </div>
+
+    <!-- ── Legend ── -->
+    <div id="legend" class="legend" style="display:none;">
+      <div class="legend-item"><span class="swatch swatch-start"></span> Start</div>
+      <div class="legend-item"><span class="swatch swatch-end"></span> End (Goal)</div>
+      <div class="legend-item"><span class="swatch swatch-obstacle"></span> Obstacle</div>
+      <div class="legend-item"><span class="swatch swatch-normal"></span> Normal</div>
+      <div class="legend-item"><span class="swatch swatch-path"></span> Optimal Path</div>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
